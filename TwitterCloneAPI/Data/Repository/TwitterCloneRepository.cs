@@ -309,28 +309,12 @@ namespace TwitterCloneAPI.Data
                 userToUpdate.userName = user.userName;
                 userToUpdate.handle = user.handle;
                 userToUpdate.profileImgUrl = user.profileImgUrl;
+                userToUpdate.Tweets = user.Tweets; 
 
                 await db.SaveChangesAsync();
 
                 return userToUpdate;
             }
         }
-      /*  public TimeSpan FileAge(long fileCreationTime)
-        {
-
-            DateTime now = DateTime.Now;
-            try
-            {
-                DateTime fCreationTime =
-                    DateTime.FromFileTime(fileCreationTime);
-                TimeSpan fileAge = now.Subtract(fCreationTime);
-                return fileAge;
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                // fileCreationTime is not valid, so re-throw the exception.
-                throw;
-            }
-        }*/
     }
 }
