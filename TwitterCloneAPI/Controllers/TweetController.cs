@@ -16,7 +16,7 @@ namespace TwitterCloneAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Tweet>>> GetAllTweets()
+        public async Task<ActionResult<List<TweetDTO>>> GetAllTweets()
         {
             try
             {

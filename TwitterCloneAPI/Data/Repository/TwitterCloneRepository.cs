@@ -123,7 +123,7 @@ namespace TwitterCloneAPI.Data
             return commentToReturn;
         }
         
-        public async Task<List<TweetDTO>> GetAllTweetsAsync()
+        public async Task<List<TweetDTO>?> GetAllTweetsAsync()
         {
             List<Tweet> tweets;
 
@@ -135,13 +135,20 @@ namespace TwitterCloneAPI.Data
 
             foreach (Tweet twe in tweets)
             {
-                TweetDTO tweToAdd = new TweetDTO();
-                tweToAdd.Id = twe.Id;
-                tweToAdd.TweetContent = twe.TweetContent;
-                tweToAdd.Likes = twe.Likes;
-                tweToAdd.Retweets = twe.Retweets;
-                tweToAdd.Timestamp = twe.Timestamp;
-                tweetToReturn.Add(tweToAdd);
+                if (tweets != null)
+                {
+                    TweetDTO tweToAdd = new TweetDTO();
+                    tweToAdd.Id = twe.Id;
+                    tweToAdd.TweetContent = twe.TweetContent;
+                    tweToAdd.Likes = twe.Likes;
+                    tweToAdd.Retweets = twe.Retweets;
+                    tweToAdd.Timestamp = twe.Timestamp;
+                    tweetToReturn.Add(tweToAdd);
+                }
+                else
+                {
+                    return null;
+                }
             }
             return tweetToReturn;
         }
@@ -261,6 +268,7 @@ namespace TwitterCloneAPI.Data
                 commentToUpdate.Content = comment.Content;
                 commentToUpdate.Likes = comment.Likes;
                 commentToUpdate.UserId = comment.UserId;
+                commentToUpdate.Timestamp = comment.Timestamp;
 
                 await db.SaveChangesAsync();
 
@@ -269,6 +277,7 @@ namespace TwitterCloneAPI.Data
         }
 
         public async Task<Tweet> UpdateTweetAsync(int id, Tweet tweet)
+
         {
             Tweet tweetToUpdate;
 
@@ -285,6 +294,7 @@ namespace TwitterCloneAPI.Data
                 tweetToUpdate.TweetContent = tweet.TweetContent;
                 tweetToUpdate.Likes = tweet.Likes;
                 tweetToUpdate.Retweets = tweet.Retweets;
+                tweetToUpdate.Comments = tweet.Comments;
 
                 await db.SaveChangesAsync();
 
