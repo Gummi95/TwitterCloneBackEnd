@@ -1,14 +1,11 @@
-# TwitterCloneBackEnd
-This is the backend for a Twitter clone that I created for a school project where you are suppsoe to be able to tweet, like tweets and comments and comment.
-The frontend is in a diffrent repository promtly called "TwiterCloneFrontEnd".
-The goal was to create a database to store data and an API to send data to the frontend. 
+# TwitterCloneBackend
 
-## Installation
-#### Git command to clone the repository
-```
-git clone https://github.com/Gummi95/TwitterCloneBackEnd.git
-```
-This project is written in Visual Studio 2022 in C# and uses .NET6 with the following NuGet packages:
+## About
+The program is written in C#. I used ASP.NET Web APIs for the API and Entity Framwork and MSSQL for the database.
+The goal was to create an API and a database to store and send data from the [frontend](https://github.com/Gummi95/TwitterCloneClient) of the application.
+
+
+## Packages
 * Microsoft.Entity.FrameworkCore 6.0.1
 * Microsoft.Entity.FrameworkCore.Design 6.0.1
 * Microsoft.Entity.FrameworkCore.SqlServer 6.01
